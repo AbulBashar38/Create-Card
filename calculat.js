@@ -1,9 +1,17 @@
 document.getElementById('mobile-plus-btn').addEventListener('click', function(){
-    PurchaseMobileAmount('amount-pieces', 1, 1219, "mobile-prize");
+    PurchaseMobileAmount('mobile-amount', 1, 1219, "mobile-prize");
 })
 
 document.getElementById('mobile-minus-btn').addEventListener('click',function(){
-    PurchaseMobileAmount('amount-pieces', -1, 1219, "mobile-prize");
+    PurchaseMobileAmount('mobile-amount', -1, 1219, "mobile-prize");
+})
+
+document.getElementById('casing-plus-btn').addEventListener('click', function(){
+    PurchaseMobileAmount('casing-amount', 1, 59, "casing-prize");
+})
+
+document.getElementById('casing-minus-btn').addEventListener('click',function(){
+    PurchaseMobileAmount('casing-amount', -1, 59, "casing-prize");
 })
 
 function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
@@ -14,3 +22,4 @@ function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
     document.getElementById(plusMinusId).value = convertPiecesAmount;
     document.getElementById(productPriceID).innerText = totalPrice;
 }
+
