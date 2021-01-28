@@ -1,14 +1,16 @@
-document.getElementById('plus-btn').addEventListener('click', function(){
-    PurchaseMobileAmount('amount-pieces', 1);
-   
+document.getElementById('mobile-plus-btn').addEventListener('click', function(){
+    PurchaseMobileAmount('amount-pieces', 1, 1219, "mobile-prize");
 })
 
-document.getElementById('minus-btn').addEventListener('click',function(){
-    PurchaseMobileAmount('amount-pieces', -1);
+document.getElementById('mobile-minus-btn').addEventListener('click',function(){
+    PurchaseMobileAmount('amount-pieces', -1, 1219, "mobile-prize");
 })
-function PurchaseMobileAmount(id, num) {
-    var capturePieces = document.getElementById(id).value;
+
+function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
+    var capturePieces = document.getElementById(plusMinusId).value;
     var convertPiecesAmount = parseFloat(capturePieces);
     var convertPiecesAmount = convertPiecesAmount + num;
-    document.getElementById('amount-pieces').value = convertPiecesAmount;
+    var totalPrice = productAmount * convertPiecesAmount;
+    document.getElementById(plusMinusId).value = convertPiecesAmount;
+    document.getElementById(productPriceID).innerText = totalPrice;
 }
