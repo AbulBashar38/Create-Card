@@ -24,8 +24,11 @@ function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
     var convertPiecesAmount = parseFloat(capturePieces);
 
     var convertPiecesAmount = convertPiecesAmount + num;
-
+    blockBtn('casing-minus-btn')
+    blockBtn('mobile-minus-btn')
+   
     var totalPrice = productAmount * convertPiecesAmount;
+
     document.getElementById(plusMinusId).value = convertPiecesAmount;
     document.getElementById(productPriceID).innerText = totalPrice;
 
@@ -48,4 +51,13 @@ function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
     //final total is showing 
     var finalTotal = onlyNumTax + subtotalAmount;
     document.getElementById('final-total').innerText = finalTotal;
+
+    function blockBtn(id) {
+        if(convertPiecesAmount < 1){
+            document.getElementById(id).disabled = true;
+        }
+        else{
+            document.getElementById(id).disabled = false;
+        }
+    }
 }
