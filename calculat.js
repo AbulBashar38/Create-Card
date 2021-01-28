@@ -20,7 +20,6 @@ document.getElementById('casing-minus-btn').addEventListener('click',function(){
 function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
 
     // use event handler in plus, minus, button of both mobile and casing section
-
     var capturePieces = document.getElementById(plusMinusId).value;
     var convertPiecesAmount = parseFloat(capturePieces);
 
@@ -40,5 +39,13 @@ function PurchaseMobileAmount(plusMinusId, num, productAmount, productPriceID) {
     var subtotalAmount = parseCaptureMobilePrice + parseCaptureCasingPrice;
     
     document.getElementById('subtotal-id').innerText = subtotalAmount;
-    
+
+    // tax amount 
+    var taxAmount = subtotalAmount * 12/100;
+    var onlyNumTax = Math.round(taxAmount);
+    document.getElementById('tax-id').innerText = onlyNumTax;
+
+    //final total is showing 
+    var finalTotal = onlyNumTax + subtotalAmount;
+    document.getElementById('final-total').innerText = finalTotal;
 }
